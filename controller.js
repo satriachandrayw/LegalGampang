@@ -149,6 +149,22 @@ exports.deleteService = function(req, res) {
 };
 //Service END
 
+//Order START
+exports.viewOrder = function(req, res){
+    connection.query('SELECT * FROM order', 
+    function (error, rows, fields){
+        if(error){
+            console.log(error)
+        } 
+        else {
+            response.ok(rows, res)
+        }
+    });
+};
+
+
+//Order END
+
 
 exports.index = function(req, res) {
     response.ok("Hello from the Node JS RESTful side!", res)

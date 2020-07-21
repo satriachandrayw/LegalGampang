@@ -56,7 +56,17 @@ export default class userCreate extends Component {
         console.log(`Email: ${this.state.user_email}`);
         console.log(`Nomor HP: ${this.state.user_nomor_hp}`);
 
-        this.state({
+        const newUser = {
+            user_name: this.state.user_name,
+            user_pw: this.state.user_pw,
+            user_email: this.state.user_email,
+            user_nomor_hp: this.state.user_nomor_hp,
+        };
+
+        axios.post('http://localhost:4000/users', newUser)
+            .then(res => console.log(res.data));
+
+        this.setState({
             user_name: '',
             user_pw: '',
             user_email: '',
@@ -80,7 +90,7 @@ export default class userCreate extends Component {
                     <div className="form-group">
                         <label>Password </label>
                         <input 
-                                type="text" 
+                                type="password" 
                                 className="form-control"
                                 value={this.state.user_pw}
                                 onChange={this.onChangeUserPassword}
@@ -89,7 +99,7 @@ export default class userCreate extends Component {
                     <div className="form-group">
                         <label>Email </label>
                         <input 
-                                type="text" 
+                                type="email" 
                                 className="form-control"
                                 value={this.state.user_email}
                                 onChange={this.onChangeUserEmail}
@@ -98,7 +108,7 @@ export default class userCreate extends Component {
                     <div className="form-group">
                         <label>Nomor HP </label>
                         <input 
-                                type="text" 
+                                type="number" 
                                 className="form-control"
                                 value={this.state.user_nomor_hp}
                                 onChange={this.onChangeUserNomorHp}

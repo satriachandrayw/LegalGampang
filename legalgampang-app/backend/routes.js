@@ -16,5 +16,11 @@ module.exports = function(app) {
         .put(todoList.updateUsers);
     
     app.route('/users:user_id')
-        .get(todoList.findUsers);    
+        .get(todoList.findUsers);
+        
+    app.route('/services')
+        .post(todoList.createServices);
+
+    app.route('/services')
+        .get(todoList.viewServices);
 };

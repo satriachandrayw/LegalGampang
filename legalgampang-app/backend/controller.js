@@ -87,7 +87,7 @@ exports.createServices = function(req, res){
     var service_description = req.body.service_description;
     var service_price = req.body.service_price;
     
-    connection.query('INSERT INTO service (service_name, service_description, service_price) values ?, ?, ? ',
+    connection.query('INSERT INTO service (service_name, service_description, service_price) values (?, ?, ?)',
     [service_name, service_description, service_price],
     function(error, rows, fields){
         if (error){

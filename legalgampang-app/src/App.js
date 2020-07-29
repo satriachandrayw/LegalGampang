@@ -9,6 +9,7 @@ import serviceList from "./components/service-list.component";
 import servicesCreate from "./components/service-create.component";
 import userList from "./components/users-list.component";
 import userCreate from "./components/users-create.component";
+import UserUpdate from './components/users-edit.component';
 
 class App extends Component {
   render() {
@@ -42,6 +43,7 @@ class App extends Component {
           <Route exact path="/users" component={userList} />
           <Route exact path="/users/create" component={userCreate} />
           <Route exact path="/services/create" component={servicesCreate} />
+          <Route exact path="/users/update/:id" component={UserUpdate} />
         </div>
       </Router>
     );

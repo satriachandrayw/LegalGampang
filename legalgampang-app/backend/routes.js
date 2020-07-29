@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
-    var todoList = require('./controller');
+    const todoList = require('./controller');
 
     app.route('/')
         .get(todoList.index);
@@ -12,10 +12,10 @@ module.exports = function(app) {
     app.route('/users')
         .post(todoList.createUsers);
         
-    app.route('/users')
+    app.route('/users/update/:id')
         .put(todoList.updateUsers);
     
-    app.route('/users:user_id')
+    app.route('/users/:id')
         .get(todoList.findUsers);
         
     app.route('/services')

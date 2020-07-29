@@ -20,7 +20,7 @@ export default class UserUpdate extends Component {
             }
     }
     componentDidMount() {
-        axios.get('http://localhost:4000/users/'+this.props.match.id)
+        axios.get('http://localhost:4000/users/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     user_name: response.data.user_name,
@@ -74,7 +74,7 @@ export default class UserUpdate extends Component {
             user_nomor_hp: this.state.user_nomor_hp,
         };
 
-        axios.put('http://localhost:4000/users/update/'+this.props.match.user_id, updateUser)
+        axios.put('http://localhost:4000/users/update/'+this.props.match.params.id, updateUser)
             .then(res => console.log(res.data));
 
         this.props.history.push('/users');

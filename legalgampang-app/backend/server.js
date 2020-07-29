@@ -11,7 +11,7 @@ const express = require('express'),
 //app.set('view engine', 'handlebars');
 
 app.use(cors());
-app.use(bodyParser());    
+//app.use(bodyParser());    
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

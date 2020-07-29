@@ -14,6 +14,9 @@ module.exports = function(app) {
         
     app.route('/users/update/:id')
         .put(todoList.updateUsers);
+
+    app.route('/users/:id')
+        .delete(todoList.deleteUsers);    
     
     app.route('/users/:id')
         .get(todoList.findUsers);
@@ -23,4 +26,10 @@ module.exports = function(app) {
 
     app.route('/services')
         .get(todoList.viewServices);
+
+    app.route('/services/update/:id')
+        .put(todoList.updateServices);
+    
+    app.route('/services/:id')
+        .get(todoList.findServices);
 };

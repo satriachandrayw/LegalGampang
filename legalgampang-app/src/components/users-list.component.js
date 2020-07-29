@@ -10,17 +10,22 @@ const Users = props => (
         <td>{props.users.user_nomor_hp}</td>
         <td>
             <Link to={"/users/update/"+props.users.id}> Edit</Link>
+            <a href="#" onClick={() => {props.deleteData(props.users.id)}} > Delete</a>
         </td>
     </tr>
 )
 
-export default class userList extends Component {
+export default class userList extends Component { 
     constructor(props) {
         super(props);
         this.state = {
             users: [] 
         };
+
+        this.deleteData = this.deleteData.bind(this);
     }
+
+    
 
     componentDidMount() {
         Axios.get('http://localhost:4000/users')
@@ -36,6 +41,16 @@ export default class userList extends Component {
     userList() {
         return this.state.users.map(function(currentUser, i) {
             return <Users users={currentUser} key={i} />;
+        })
+    }
+
+    deleteData(id) {
+        Axios.delete('http://localhost:4000/users/'+id)
+        .then((res) => {
+            console.log(res.data)
+        })
+        .catch((err) => {
+            console.log(err);
         })
     }
 
